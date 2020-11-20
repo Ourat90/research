@@ -32,18 +32,18 @@
                             <h3>Sign Up</h3>
                         </div>
 
-                        <form control="" class="form-group">
+                        <form action="modules/encrypt.php" control="" class="form-group" enctype="multipart/form-data" method="POST">
                             <div class="row mb-2">
                                 <span class="fa fa-user icon"></span>
                                 <input type="text" name="username" id="Username" class="form__input" placeholder="Username">
                             </div>
                             <div class="row mb-2">
                                 <span class="fa fa-lock icon"></span>
-                                <input type="password" name="password1" id="Password1" class="form__input" placeholder="Password">
+                                <input type="password" name="password" id="Password1" class="form__input" placeholder="Password">
                             </div>
                             <div class="row mb-2">
                                 <span class="fa fa-lock icon"></span>
-                                <input type="password" name="password2" id="Password2" class="form__input" placeholder="Confirm Password">
+                                <input type="password" name="confirmPassword" id="Password2" class="form__input" placeholder="Confirm Password">
                             </div>
                             <div class="row mb-2">
                                 <span class="fa fa-address-card icon"></span>
@@ -72,7 +72,7 @@
                                                 <i class="fa fa-download"></i>
                                                 <p>Choose an image file or drag it here.</p>
                                             </div>
-                                            <input type="file" name="img_logo" class="dropzone">
+                                            <input type="file" name="fileToUpload" class="dropzone">
                                         </div>
                                     </div>
                                 </div>
