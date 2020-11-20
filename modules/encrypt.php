@@ -79,7 +79,7 @@ echo $base64."<br>";
 $sql = "INSERT INTO M_USER (`name`, `username`, `password`) VALUES ('$name', '$username', '$base64')";
 
 if ($db->query($sql)) {
-  header("Location: ../index.php?message=success");
+  header("Location: ../index.php?message=success&username=$username");
 } else {
    header("Location: ../index.php?message=".$db->error);
 }
