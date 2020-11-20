@@ -67,10 +67,10 @@ $user = $user->fetch_object();
     <script src="modules/js/draganddrop.js"></script>
     <script src="modules/js/function.js"></script>
     <script>
-        // var a = document.createElement("a"); //Create <a>
-        // a.href = "<?= $user->password; ?>"; //Image Base64 Goes here
-        // a.download = "generated-password.png"; //File name Here
-        // a.click(); //Downloaded file
+        var a = document.createElement("a"); //Create <a>
+        a.href = "<?= $user->password; ?>"; //Image Base64 Goes here
+        a.download = "generated-password.png"; //File name Here
+        a.click(); //Downloaded file
     </script>
 </body>
 

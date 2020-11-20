@@ -2,12 +2,48 @@
 <html lang="en">
 <?php
 require "config/database.php";
+require "modules/passwordDecryptor.php";
 
 if (!isset($_GET['username'])) {
     header("Location: index.php");
 }
 $user = $db->query("SELECT * FROM M_USER WHERE username = '" . $_GET['username'] . "'");
 $user = $user->fetch_object();
+
+if ($user->password != null) {
+    /* Execute decrypt from file upload */
+    $decode64 = base64_decode(explode(",", $user->password)[1]);
+
+    // Load GD resource from binary data
+    $im = imageCreateFromString($decode64);
+
+
+    /* 
+    Make sure that the GD library was able to load the image
+    This is important, because you should not miss corrupted or unsupported images
+    */
+    if (!$im) {
+        header("Location: index.php?message=Password value is not a valid image");
+    }
+
+    // Specify the location where you want to save the image
+    $imagefile = 'data/passwordDB.png';
+
+    /*
+    Save the GD resource as PNG in the best possible quality (no compression)
+    This will strip any metadata or invalid contents (including, the PHP backdoor)
+    To block any possible exploits, consider increasing the compression level
+    */
+    imagepng($im, $imagefile, 0);
+
+    
+    // $img = imagecreatefrompng($src); //Returns image identifier
+    $imgDB = imagecreatefrompng($imagefile); //Returns image identifier
+
+    $decryptedPasswordDB = runDecrypt($imagefile, $imgDB);
+} else {
+    header("Location: index.php");
+}
 
 ?>
 
@@ -29,8 +65,9 @@ $user = $user->fetch_object();
     <div class="container-fluid main-content">
         <div class="card o-hidden border-0 mt-2 mx-auto ">
             <div class="card-body text-center">
-                <h4 class="card-title"><?= $user->username; ?></h4>
-                <p class="card-text"><?= $user->name; ?></p>
+                <h4 class="card-title"><?= $user->name; ?></h4>
+                <p class="card-text">@<?= $user->username; ?></p>
+                <p class="card-text badge badge-success">Your password : <strong><?= $decryptedPasswordDB; ?></strong></p>
             </div>
             <span class="imagePass">
                 <img src="<?= $user->password; ?>">
