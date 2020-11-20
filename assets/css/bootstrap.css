@@ -10704,12 +10704,13 @@ a.text-dark:focus {
   max-height: 400px;
   max-width: 400px;
   text-align: center;
+  padding: 35px;
 }
 
 .download-button {
   display: block;
   margin-bottom: 30px;
-  text-align: center;
+  max-width: 400px;
 }
 
 .form-title {
