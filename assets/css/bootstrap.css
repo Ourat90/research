@@ -10696,6 +10696,23 @@ a.text-dark:focus {
   text-align: center;
 }
 
+.imagePass {
+  display: flex;
+}
+.imagePass img {
+  margin: 0 auto;
+  max-height: 400px;
+  max-width: 400px;
+  text-align: center;
+  padding: 35px;
+}
+
+.download-button {
+  display: block;
+  margin-bottom: 30px;
+  max-width: 400px;
+}
+
 .form-title {
   text-align: center;
   margin-bottom: 33px;

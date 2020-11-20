@@ -23,7 +23,3 @@ $('#to-sign-up').click(function () {
                 $('#signup').fadeIn(timefade);
             });                 
         });
-        
-$('#okeButton').on('click', function () {
-    $('#modalSuccess').modal('hide');
-})
