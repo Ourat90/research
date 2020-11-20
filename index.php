@@ -107,7 +107,7 @@
                                 <h3>Sign In</h3>
                             </div>
 
-                            <form control="" class="form-group">
+                            <form action="modules/decrypt.php" control="" class="form-group" enctype="multipart/form-data" method="POST">
                                 <div class="row mb-2">
                                     <span class="fa fa-user icon"></span>
                                     <input type="text" name="username" id="Username" class="form__input" placeholder="Username">
@@ -134,7 +134,7 @@
                                                     <i class="fa fa-download"></i>
                                                     <p>Choose an image file or drag it here.</p>
                                                 </div>
-                                                <input type="file" id="file2" name="img_logo" class="dropzone">
+                                                <input type="file" id="file2" name="fileToUpload" class="dropzone">
                                             </div>
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@
                 <!--/.icon-->
                 <h1 class="mt-3">Success!</h1>
                 <p>Your account has been created!</p>
-                <button type="button" class="btn" data-dismiss="modal">Ok</button>
+                <button type="button" class="btn" data-dismiss="modal" onclick="javascript:window.location='generatedpassword.php?username=<?= $_GET['username']; ?>'">Ok</button>
             </div>
         </div>
     </div>
@@ -206,7 +206,7 @@
     <script>
         <?php if (isset($_GET['message'])) { ?>
             <?php if ($_GET['message'] == 'success') { ?>
-                $('#modalSuccess').modal('show');
+                $('#modalSuccess').modal({backdrop: 'static', keyboard: false}, 'show');
             <?php } else { ?>
                 $('#modalFailed').modal('show');
             <?php } ?>
