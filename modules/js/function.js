@@ -14,7 +14,8 @@ $('#to-sign-in').click(function () {
             $('#signup').fadeOut(timefade, 'linear', function() {
                 $('#sign-in').fadeIn(timefade);
             });                
-        });
+});
+        
 
 $('#to-sign-up').click(function () {
     console.log("SIGN UP");
