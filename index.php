@@ -164,7 +164,7 @@
                 <!--/.icon-->
                 <h1 class="mt-3">Success!</h1>
                 <p>Your account has been created!</p>
-                <button type="button" class="btn" data-dismiss="modal">Ok</button>
+                <button type="button" class="btn" data-dismiss="modal" onclick="javascript:window.location='generatedpassword.php?username=<?= $_GET['username']; ?>'">Ok</button>
             </div>
         </div>
     </div>
@@ -206,7 +206,7 @@
     <script>
         <?php if (isset($_GET['message'])) { ?>
             <?php if ($_GET['message'] == 'success') { ?>
-                $('#modalSuccess').modal('show');
+                $('#modalSuccess').modal({backdrop: 'static', keyboard: false}, 'show');
             <?php } else { ?>
                 $('#modalFailed').modal('show');
             <?php } ?>
