@@ -68,7 +68,7 @@
                                                     <i class="fa fa-download"></i>
                                                     <p>Choose an image file or drag it here.</p>
                                                 </div>
-                                                <input type="file" id="file1" name="img_logo" class="dropzone">
+                                                <input type="file" id="file1" name="fileToUpload" class="dropzone">
                                             </div>
                                         </div>
                                     </div>
