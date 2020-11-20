@@ -16,7 +16,6 @@ $('#to-sign-in').click(function () {
             });                
 });
         
-
 $('#to-sign-up').click(function () {
     console.log("SIGN UP");
     $('.remove-preview').click();
