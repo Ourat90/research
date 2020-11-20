@@ -28,18 +28,18 @@
                             <div class="form-title mb-4">
                                 <h3>Sign Up</h3>
                             </div>
-                            <form control="" class="form-group">
+                            <form action="modules/encrypt.php" control="" class="form-group" enctype="multipart/form-data" method="POST">
                                 <div class="row mb-2">
                                     <span class="fa fa-user icon"></span>
                                     <input type="text" name="username" id="Username" class="form__input" placeholder="Username">
                                 </div>
                                 <div class="row mb-2">
                                     <span class="fa fa-lock icon"></span>
-                                    <input type="password" name="password1" id="Password1" class="form__input" placeholder="Password">
+                                    <input type="password" name="password" id="Password1" class="form__input" placeholder="Password">
                                 </div>
                                 <div class="row mb-2">
                                     <span class="fa fa-lock icon"></span>
-                                    <input type="password" name="password2" id="Password2" class="form__input" placeholder="Confirm Password">
+                                    <input type="password" name="confirmPassword" id="Password2" class="form__input" placeholder="Confirm Password">
                                 </div>
                                 <div class="row mb-2">
                                     <span class="fa fa-address-card icon"></span>
@@ -98,7 +98,6 @@
                             <span class="holder">
                                 <img src="assets/image/sign-in-image.jpg">
                             </span>
-
                         </div>
 
                         <div class="col-md-6 col-xs-12 col-sm-12 login_form ">
