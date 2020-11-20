@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 
 require "../modules/util.php";
 require "../config/database.php";
@@ -63,8 +64,6 @@ for($x=0;$x<$msgLength;$x++){ //Encrypt message bit by bit (literally)
 
 }
 
-echo '<img src="'.$img.'">';
-
 imagepng($img, $filename); //Create image
 echo('done: ' . $filename. "<br>"); //Echo our image file name
 imagedestroy($img); //get rid of it
@@ -78,11 +77,13 @@ echo $base64."<br>";
 
 // Store to database
 $sql = "INSERT INTO M_USER (`name`, `username`, `password`) VALUES ('$name', '$username', '$base64')";
+
 if ($db->query($sql)) {
-	echo "SUKSES INSERT DB";
+  header("Location: ../index.php?message=success");
 } else {
-   echo "Error: ". $db->error;
+   header("Location: ../index.php?message=".$db->error);
 }
+
 
 // Close connection
 $db->close();
