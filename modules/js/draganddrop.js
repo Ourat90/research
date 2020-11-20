@@ -1,11 +1,16 @@
-$('#closePreview').hide();
-    function readFile(input) {
+prevclose();
+function prevclose() {
+    $('#closePreview').hide();
+}
+
+function readFile(input, preview, selectFile) {
+   
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
             reader.onload = function(e) {
-                $('#closePreview').show();
-                $('#selectFile').hide();
+                $(preview).show();
+                $(selectFile).hide();
                 var htmlPreview =
                     '<img src="' + e.target.result + '" />';
                 var wrapperZone = $(input).parent();
@@ -27,10 +32,17 @@ $('#closePreview').hide();
         e.unwrap();
         $('#closePreview').hide();
         $('#selectFile').show();
+        $('#closePreview2').hide();
+        $('#selectFile2').show();
     }
-    $(".dropzone").change(function() {
-        readFile(this);
+    $("#file1").change(function() {
+        readFile(this, "#closePreview", "#selectFile");
     });
+
+$("#file2").change(function () {
+        readFile(this, "#closePreview2", "#selectFile2");
+    });
+
     $('.dropzone-wrapper').on('dragover', function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -41,6 +53,7 @@ $('#closePreview').hide();
         e.stopPropagation();
         $(this).removeClass('dragover');
     });
+    
     $('.remove-preview').on('click', function() {
         var boxZone = $(this).parents('.preview-zone').find('.box-body');
         var previewZone = $(this).parents('.preview-zone');
