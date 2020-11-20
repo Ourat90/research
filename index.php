@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="modules/css/message_modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Power Point</title>
@@ -154,11 +155,38 @@
         </div>
     </section>
 
-
-
-
-
+    <div class="modal fade" id="modalSuccess">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modalbox success center animate">
+                <div class="icon">
+                    <span class="fa fa-check"></span>
+                </div>
+                <!--/.icon-->
+                <h1 class="mt-3">Success!</h1>
+                <p>Your account has been created!</p>
+                <button type="button" class="btn" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
     </div>
+
+    <div class="modal fade" id="modalFailed">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modalbox error center animate">
+                <div class="icon">
+                    <span class="fa fa-warning"></span>
+                </div>
+                <!--/.icon-->
+                <h1 class="mt-3">Failed!</h1>
+                <p><?= $_GET['message']; ?></p>
+                <button type="button" class="btn" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+    <!--/.container-->
+
+
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
@@ -169,10 +197,21 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
     -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="modules/js/draganddrop.js"></script>
+    <script src="modules/js/function.js"></script>
+    <script>
+        <?php if (isset($_GET['message'])) { ?>
+            <?php if ($_GET['message'] == 'success') { ?>
+                $('#modalSuccess').modal('show');
+            <?php } else { ?>
+                $('#modalFailed').modal('show');
+            <?php } ?>
+        <?php } ?>
+    </script>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="modules/js/draganddrop.js"></script>
-<script src="modules/js/function.js"></script>
 
 </html>
