@@ -31,20 +31,46 @@
                             </div>
                             <form action="modules/encrypt.php" control="" class="form-group" enctype="multipart/form-data" method="POST">
                                 <div class="row mb-2">
+                                    <input type="text" name="username" id="Username" class="form__input" placeholder="Username" required>
                                     <span class="fa fa-user icon"></span>
-                                    <input type="text" name="username" id="Username" class="form__input" placeholder="Username">
+                                </div>
+                                <div class="row mb-2 has-danger">
+                                    <input type="password" name="password" id="Password1" class="form__input" placeholder="Password" required>
+                                    <span class="fa fa-lock icon"></span>
+                                    <span class="fa fa-eye togglePassword" id="togglePassword"></span>
+
+                                    <div id="passwordRules" class="password-rule">
+                                        <small>
+                                            <ul class="list-unstyled">
+                                                <li class="">
+                                                    <span class="eight-character"><i class="fa fa-ban text-danger  " aria-hidden="true"></i></span>
+                                                    &nbsp; Must have a minimum 8 character</li>
+                                                <li class="">
+                                                    <span class="upper-case"><i class="fa fa-ban text-danger " aria-hidden="true"></i></span>
+                                                    &nbsp; Must have at least 1 uppercase</li>
+                                                <li class="">
+                                                    <span class="lower-case"><i class="fa fa-ban text-danger " aria-hidden="true"></i></span>
+                                                    &nbsp; Must include at least 1 lowercase</li>
+                                                <li class="">
+                                                    <span class="one-number"><i class="fa fa-ban text-danger " aria-hidden="true"></i></span>
+                                                    &nbsp; Must include at least 1 number</li>
+
+                                            </ul>
+                                        </small>
+                                    </div>
                                 </div>
                                 <div class="row mb-2">
+                                    <input type="password" name="confirmPassword" id="Password2" class="form__input" placeholder="Confirm Password" required>
                                     <span class="fa fa-lock icon"></span>
-                                    <input type="password" name="password" id="Password1" class="form__input" placeholder="Password">
-                                </div>
-                                <div class="row mb-2">
-                                    <span class="fa fa-lock icon"></span>
-                                    <input type="password" name="confirmPassword" id="Password2" class="form__input" placeholder="Confirm Password">
+                                    <span class="fa fa-eye togglePassword" id="toggleConfirmPassword"></span>
+                                    <div class="hide password-not-match mt-1" id="error-confirmpassword">
+                                        <small><span class="">
+                                                <i class="fa fa-ban text-danger  " aria-hidden="true"></i> &nbsp; Don't match password'</span></small>
+                                    </div>
                                 </div>
                                 <div class="row mb-2">
                                     <span class="fa fa-address-card icon"></span>
-                                    <input type="text" name="name" id="Name" class="form__input" placeholder="Name">
+                                    <input type="text" name="name" id="Name" class="form__input" placeholder="Name" required>
                                 </div>
 
 
@@ -69,7 +95,7 @@
                                                     <i class="fa fa-download"></i>
                                                     <p>Choose an image file or drag it here.</p>
                                                 </div>
-                                                <input type="file" id="file1" name="fileToUpload" class="dropzone">
+                                                <input type="file" id="file1" name="fileToUpload" accept=" .png, .jpg, .jpeg" class="dropzone">
                                             </div>
                                         </div>
                                     </div>
@@ -81,12 +107,14 @@
                                         <a href="#" id="to-sign-in">I am already member</a>
                                     </span>
                                 </div>
-
                             </form>
+
                         </div>
+
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -134,7 +162,7 @@
                                                     <i class="fa fa-download"></i>
                                                     <p>Choose an image file or drag it here.</p>
                                                 </div>
-                                                <input type="file" id="file2" name="fileToUpload" class="dropzone">
+                                                <input type="file" id="file2" name="fileToUpload" class="dropzone" accept=" .png, .jpg, .jpeg">
                                             </div>
                                         </div>
                                     </div>
@@ -203,10 +231,14 @@
     <script src="assets/js/bootstrap.js"></script>
     <script src="modules/js/draganddrop.js"></script>
     <script src="modules/js/function.js"></script>
+    <script src="modules/js/validation_password.js"></script>
     <script>
         <?php if (isset($_GET['message'])) { ?>
             <?php if ($_GET['message'] == 'success') { ?>
-                $('#modalSuccess').modal({backdrop: 'static', keyboard: false}, 'show');
+                $('#modalSuccess').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                }, 'show');
             <?php } else { ?>
                 $('#modalFailed').modal('show');
             <?php } ?>

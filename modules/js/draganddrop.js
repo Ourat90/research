@@ -2,13 +2,37 @@ prevclose();
 function prevclose() {
     $('#closePreview').hide();
 }
+function fileValidation() {
+    var fileInput =
+        document.getElementById('file1');
+      
+    var filePath = fileInput.value;
+  
+    // Allowing file type 
+    var allowedExtensions =
+        /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      
+    if (!allowedExtensions.exec(filePath)) {
+        alert('Invalid file type');
+        return false; 
+    }
+    else {
+        readFile();
+    }
+}
 
 function readFile(input, preview, selectFile) {
-   
+    // var allowedExtensions =
+    //     /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      
+    // if (!allowedExtensions.exec(input)) {
+    //     alert('Invalid file type');
+    //     return false; 
+    // } else {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 $(preview).show();
                 $(selectFile).hide();
                 var htmlPreview =
@@ -26,6 +50,7 @@ function readFile(input, preview, selectFile) {
             reader.readAsDataURL(input.files[0]);
         }
     }
+
 
     function reset(e) {
         e.wrap('<form>').closest('form').get(0).reset();

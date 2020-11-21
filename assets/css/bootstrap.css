@@ -10784,7 +10784,7 @@ form {
   font-size: 12px;
   width: 100%;
   border: 0px solid transparent;
-  border-radius: 0;
+  border-radius: 5px;
   border-bottom: 1px solid #aaa;
   padding: 1em 0.5em 0.5em;
   padding-left: 3em;
@@ -10884,4 +10884,35 @@ form {
   outline: none;
   top: -14px;
   right: 0;
+}
+
+/* css form validation */
+.password-rule {
+  background-color: #eaf3fa;
+  padding: 10px 35px 0px;
+  width: 100%;
+  margin: 0 auto;
+  display: none;
+}
+
+.password-not-match {
+  background-color: #f9dddb;
+  padding: 0px 35px 0px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Show and Hide Password */
+.togglePassword {
+  position: absolute;
+  font-size: 1.5rem;
+  color: rgb(136, 130, 130);
+  right: 2.5rem;
+  cursor: pointer;
+  margin-top: 11px;
+}
+
+.hide {
+  display: none;
 }
