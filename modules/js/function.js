@@ -51,3 +51,32 @@ const onToggleTypePassword2 = () => {
 };
 
 toggleConfirmPassword.addEventListener("click", onToggleTypePassword2);
+
+
+$('#formSignUp').on('change keyup', function() {
+    if (formIsValid()) {
+        $('#btn-submit').removeAttr('disabled');
+    }
+});
+
+function formIsValid() {
+    if (isBlank($('#Username').val())) return false;
+
+    if (isBlank($('#Password1').val()) && isBlank($('#Password2').val())) return false;
+
+    if ($('#Password1').val() != $('#Password2').val()) return false;
+
+    if (isBlank($('#file1').val())) return false;
+
+    if (isBlank($('#Name').val())) return false;
+
+    return true;
+}
+
+
+function isBlank(param) {
+    if (param == null|| param == undefined || param == '') {
+        return true;
+    }
+    return false;
+}

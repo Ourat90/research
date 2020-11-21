@@ -29,7 +29,7 @@
                             <div class="form-title mb-4">
                                 <h3>Sign Up</h3>
                             </div>
-                            <form action="modules/encrypt.php" control="" class="form-group" enctype="multipart/form-data" method="POST">
+                            <form action="modules/encrypt.php" id="formSignUp" class="form-group" enctype="multipart/form-data" method="POST">
                                 <div class="row mb-2">
                                     <input type="text" name="username" id="Username" class="form__input" placeholder="Username" required>
                                     <span class="fa fa-user icon"></span>
@@ -65,7 +65,7 @@
                                     <span class="fa fa-eye togglePassword" id="toggleConfirmPassword"></span>
                                     <div class="hide password-not-match mt-1" id="error-confirmpassword">
                                         <small><span class="">
-                                                <i class="fa fa-ban text-danger  " aria-hidden="true"></i> &nbsp; Don't match password'</span></small>
+                                                <i class="fa fa-ban text-danger  " aria-hidden="true"></i> &nbsp; Password and confirm password does not match!</span></small>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
@@ -102,7 +102,7 @@
                                 </div>
                                 <hr>
                                 <div class="row ">
-                                    <input type="submit" value="Submit" class="btn-form">
+                                    <input type="submit" value="Submit" class="btn-form" id="btn-submit" disabled>
                                     <span class="login_form">
                                         <a href="#" id="to-sign-in">I am already member</a>
                                     </span>
