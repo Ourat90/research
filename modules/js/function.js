@@ -22,4 +22,32 @@ $('#to-sign-up').click(function () {
             $('#sign-in').fadeOut(timefade, 'linear', function() {
                 $('#signup').fadeIn(timefade);
             });                 
-        });
+});
+
+const inputPassword1 = document.getElementById("Password1");
+const inputPassword2 = document.getElementById("Password2");
+const togglePassword = document.getElementById("togglePassword");
+const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+
+const onToggleTypePassword1 = () => {
+    togglePassword.classList.toggle("fa-eye-slash");
+    if (inputPassword1.type === "password") {
+        inputPassword1.type = "text";
+    } else {
+        inputPassword1.type = "password";
+    }
+
+};
+togglePassword.addEventListener("click", onToggleTypePassword1);
+
+const onToggleTypePassword2 = () => {
+    toggleConfirmPassword.classList.toggle("fa-eye-slash");
+
+    if (inputPassword2.type === "password") {
+        inputPassword2.type = "text";
+    } else {
+        inputPassword2.type = "password";
+    }
+};
+
+toggleConfirmPassword.addEventListener("click", onToggleTypePassword2);
