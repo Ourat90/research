@@ -57,12 +57,13 @@ if ($user->password != null) {
     <link rel="stylesheet" href="modules/css/message_modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Power Point</title>
+    <title>My Profile</title>
+    <link rel="icon" href="assets/image/title_logo.png" type="image/icon type">
 </head>
 
 <body>
     <section id="profile">
-        <div class="container-fluid main-content border border-secondary">
+        <div class="container-fluid main-content border border-secondary" style="margin: 1em auto;">
             <div class=" card o-hidden border-0 mt-2 mx-auto ">
                 <div class=" card-body text-center">
                     <h4 class="card-title font-weight-bold" style="margin: 0; margin-top: 0.20rem"><?= $user->name; ?></h4>
@@ -72,15 +73,14 @@ if ($user->password != null) {
                 <span class="imagePass">
                     <img src="<?= $user->password; ?>">
                 </span>
-                <span style="padding: 0px 100px 0px;">
+                <span style="padding: 0px 100px 0px; margin-top:20px; ">
                     <a href="<?= $user->password; ?>" type="button" class="btn btn-primary download-button" download="generated-password.png" style="margin-bottom: 40px;">
                         <span> <i class=" fa fa-cloud-download mr-2"></i> Download</span>
 
                     </a>
                 </span>
 
-
-                <span style=" padding: 0px 75px 0px; margin-bottom: 20px;">
+                <span style=" padding: 0px 125px 0px; margin-bottom: 20px;">
                     <a href="index.php" type="button" class="btn btn-outline-dark shadow download-button">
                         <span> <i class="fa fa-arrow-left"></i> &nbsp; Back </span>
                     </a>

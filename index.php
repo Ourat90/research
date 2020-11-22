@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="modules/css/message_modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Power Point</title>
+    <title>Research</title>
+    <link rel="icon" href="assets/image/title_logo.png" type="image/icon type">
 </head>
 
 <body>
