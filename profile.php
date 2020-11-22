@@ -36,7 +36,7 @@ if ($user->password != null) {
     */
     imagepng($im, $imagefile, 0);
 
-    
+
     // $img = imagecreatefrompng($src); //Returns image identifier
     $imgDB = imagecreatefrompng($imagefile); //Returns image identifier
 
@@ -61,36 +61,101 @@ if ($user->password != null) {
 </head>
 
 <body>
+    <section id="profile">
+        <div class="container-fluid main-content border border-secondary">
+            <div class=" card o-hidden border-0 mt-2 mx-auto ">
+                <div class=" card-body text-center">
+                    <h4 class="card-title font-weight-bold" style="margin: 0; margin-top: 0.20rem"><?= $user->name; ?></h4>
+                    <p class="card-text">@<?= $user->username; ?></p>
+                    <p class="card-text badge badge-success">Your password : <strong><?= $decryptedPasswordDB; ?></strong></p>
+                </div>
+                <span class="imagePass">
+                    <img src="<?= $user->password; ?>">
+                </span>
+                <span style="padding: 0px 100px 0px;">
+                    <a href="<?= $user->password; ?>" type="button" class="btn btn-primary download-button" download="generated-password.png" style="margin-bottom: 40px;">
+                        <span> <i class=" fa fa-cloud-download mr-2"></i> Download</span>
 
-    <div class="container-fluid main-content">
-        <div class="card o-hidden border-0 mt-2 mx-auto ">
-            <div class="card-body text-center">
-                <h4 class="card-title"><?= $user->name; ?></h4>
-                <p class="card-text">@<?= $user->username; ?></p>
-                <p class="card-text badge badge-success">Your password : <strong><?= $decryptedPasswordDB; ?></strong></p>
+                    </a>
+                </span>
+                <span style=" padding: 0px 75px 0px; margin-bottom: 20px;">
+                    <a href=" #" type="button" id="go-to-sign-in" class="btn btn-outline-dark shadow download-button">
+                        <span> <i class="fa fa-arrow-left"></i> &nbsp; Go to Sign in</span>
+                    </a>
+                </span>
             </div>
-            <span class="imagePass">
-                <img src="<?= $user->password; ?>">
-            </span>
-            <span class="mb-4" style="padding: 0px 75px 0px;">
-                <a href="<?= $user->password; ?>" type="button" class="btn btn-primary download-button" download="generated-password.png">
-                    <span> <i class="fa fa-cloud-download mr-2"></i> Download</span>
+    </section>
 
-                </a>
-            </span>
+    <section id="sign-in">
+        <div class=" container-fluid">
+            <div class="card o-hidden border-0 mt-2 mx-auto ">
+                <div class="card-body p-0">
+                    <div class="row main-content">
+                        <div class="col-md-6 text-center company__info">
+                            <span class="holder">
+                                <img src="assets/image/sign-in-image.jpg">
+                            </span>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12 col-sm-12 login_form ">
+
+                            <div class="form-title mb-4">
+                                <h3>Sign In</h3>
+                            </div>
+
+                            <form action="modules/decrypt.php" control="" class="form-group" enctype="multipart/form-data" method="POST">
+                                <div class="row mb-2">
+                                    <span class="fa fa-user icon"></span>
+                                    <input type="text" name="username" id="Username" class="form__input" placeholder="Username">
+                                </div>
+
+                                <div class="row mt-4 text-center">
+                                    <div class="col-md-12 mt-2">
+                                        <div class="form-group">
+                                            <div class="preview-zone hidden">
+                                                <div class="box box-solid">
+
+                                                    <div class="box-body">
+
+                                                    </div>
+                                                    <div class="">
+                                                        <button id="closePreview2" type="button" class="btn btn-danger btn-sm remove-preview mt-3">
+                                                            Close Preview
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dropzone-wrapper" id="selectFile2">
+                                                <div class="dropzone-desc">
+                                                    <i class="fa fa-download"></i>
+                                                    <p>Choose an image file or drag it here.</p>
+                                                </div>
+                                                <input type="file" id="file2" name="fileToUpload" class="dropzone" accept=" .png, .jpg, .jpeg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row ">
+                                    <input type="submit" value="Submit" class="btn-form">
+                                    <span class="login_form">
+                                        <a href="#" id="to-sign-up">Create an account</a>
+                                    </span>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </div>
-    </div>
-    </div>
-
-
+    </section>
 
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS

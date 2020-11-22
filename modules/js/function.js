@@ -24,6 +24,14 @@ $('#to-sign-up').click(function () {
             });                 
 });
 
+$('#go-to-sign-in').click(function () {
+    console.log("SIGN IN");
+    $('.remove-preview').click();
+            $('#profile').fadeOut(timefade, 'linear', function() {
+                $('#sign-in').fadeIn(timefade);
+            });                
+});
+
 const inputPassword1 = document.getElementById("Password1");
 const inputPassword2 = document.getElementById("Password2");
 const togglePassword = document.getElementById("togglePassword");
