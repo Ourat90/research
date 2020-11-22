@@ -10705,6 +10705,7 @@ a.text-dark:focus {
   max-width: 400px;
   text-align: center;
   padding: 15px;
+  border-radius: 50px;
 }
 
 .download-button {
@@ -10827,6 +10828,7 @@ form {
 .box-body img {
   margin: 0 auto;
   max-width: 200px;
+  border-radius: 30px;
 }
 
 .box-header {
