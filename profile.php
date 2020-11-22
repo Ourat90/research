@@ -78,11 +78,17 @@ if ($user->password != null) {
 
                     </a>
                 </span>
+
+
                 <span style=" padding: 0px 75px 0px; margin-bottom: 20px;">
-                    <a href=" #" type="button" id="go-to-sign-in" class="btn btn-outline-dark shadow download-button">
-                        <span> <i class="fa fa-arrow-left"></i> &nbsp; Go to Sign in</span>
+                    <a href="index.php" type="button" class="btn btn-outline-dark shadow download-button">
+                        <span> <i class="fa fa-arrow-left"></i> &nbsp; Back </span>
                     </a>
                 </span>
+
+
+
+
             </div>
     </section>
 
