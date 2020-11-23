@@ -10704,13 +10704,15 @@ a.text-dark:focus {
   max-height: 400px;
   max-width: 400px;
   text-align: center;
-  padding: 35px;
+  padding: 15px;
+  border-radius: 50px;
 }
 
 .download-button {
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   max-width: 400px;
+  border-radius: 25px;
 }
 
 .form-title {
@@ -10826,6 +10828,7 @@ form {
 .box-body img {
   margin: 0 auto;
   max-width: 200px;
+  border-radius: 30px;
 }
 
 .box-header {

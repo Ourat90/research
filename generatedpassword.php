@@ -21,12 +21,13 @@ $user = $user->fetch_object();
     <link rel="stylesheet" href="modules/css/message_modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Power Point</title>
+    <title>Password Generated</title>
+    <link rel="icon" href="assets/image/title_logo.png" type="image/icon type">
 </head>
 
 <body>
 
-    <div class="container-fluid main-content">
+    <div class="container-fluid main-content  border border-secondary" style="margin: 2em auto;">
         <div class="card o-hidden border-0 mt-2 mx-auto ">
             <div class="card-body text-center">
                 <h4 class="card-title"><?= $user->username; ?></h4>
@@ -35,10 +36,16 @@ $user = $user->fetch_object();
             <span class="imagePass">
                 <img src="<?= $user->password; ?>">
             </span>
-            <span class="mb-4" style="padding: 0px 75px 0px;">
-                <a href="<?= $user->password; ?>" type="button" class="btn btn-primary download-button" download="generated-password.png">
-                    <span> <i class="fa fa-cloud-download mr-2"></i> Download</span>
+            <span style="padding: 0px 100px 0px; margin-top:20px; ">
+                <a href="<?= $user->password; ?>" type="button" class="btn btn-primary download-button" download="generated-password.png" style="margin-bottom: 40px;">
+                    <span> <i class=" fa fa-cloud-download mr-2"></i> Download</span>
 
+                </a>
+            </span>
+
+            <span style=" padding: 0px 125px 0px; margin-bottom: 20px;">
+                <a href="index.php" type="button" class="btn btn-outline-dark shadow download-button">
+                    <span> <i class="fa fa-arrow-left"></i> &nbsp; Back </span>
                 </a>
             </span>
         </div>
