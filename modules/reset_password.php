@@ -7,8 +7,15 @@ require "../config/database.php";
 //Edit below variables
 $username = $_POST['username'];
 $msg = $_POST['password']; //To encrypt
-$name = $_POST['name'];
 $src = $_FILES['fileToUpload']['tmp_name']; //Start image
+
+// Check is user is not exists
+// Get image steganography password from database filter by username
+$checkUser = $db->query("SELECT COUNT(*) as isExist FROM M_USER WHERE username = '$username'")->fetch_object()->isExist;
+
+if ($checkUser < 1) {
+  header("Location: ../index.php?message=User not found!");
+}
 
 echo $_FILES['fileToUpload']['name']."<br>";
 
@@ -32,8 +39,8 @@ if($msgLength > ($width * $height)){ //The image has more bits than there are pi
   die();
 }
 
-$pixelX = 0; //Coordinates of our pixel that we want to edit
-$pixelY = 0; //^
+$pixelX=0; //Coordinates of our pixel that we want to edit
+$pixelY=0; //^
 
 for($x = 0; $x < $msgLength; $x++){ //Encrypt message bit by bit (literally)
 
@@ -76,7 +83,7 @@ echo $base64."<br>";
 
 
 // Store to database
-$sql = "INSERT INTO M_USER (`name`, `username`, `password`) VALUES ('$name', '$username', '$base64')";
+$sql = "UPDATE M_USER SET `password` = '$base64' WHERE username = '$username'";
 
 if ($db->query($sql)) {
   header("Location: ../index.php?message=success&username=$username");
