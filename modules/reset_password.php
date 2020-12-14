@@ -84,7 +84,7 @@ echo $base64."<br>";
 
 
 // Store to database
-$sql = "UPDATE M_USER SET (`password`) VALUES ('$base64')";
+$sql = "UPDATE M_USER SET `password` = '$base64' WHERE username = '$username'";
 
 if ($db->query($sql)) {
   header("Location: ../index.php?message=success&username=$username");
