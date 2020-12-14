@@ -47,8 +47,13 @@ $('#back-to-sign-in').click(function () {
 
 const inputPassword1 = document.getElementById("Password1");
 const inputPassword2 = document.getElementById("Password2");
+const inputPassword_reset = document.getElementById("Password_reset");
+const inputConfirmPassword_reset = document.getElementById("confirmPassword_reset");
+
 const togglePassword = document.getElementById("togglePassword");
 const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+const togglePassword_reset = document.getElementById("togglePassword_reset");
+const toggleConfirmPassword_reset = document.getElementById("toggleConfirmPassword_reset");
 
 const onToggleTypePassword1 = () => {
     togglePassword.classList.toggle("fa-eye-slash");
@@ -73,9 +78,37 @@ const onToggleTypePassword2 = () => {
 
 toggleConfirmPassword.addEventListener("click", onToggleTypePassword2);
 
+const onToggleTypePassword_reset = () => {
+    togglePassword_reset.classList.toggle("fa-eye-slash");
+
+    if (inputPassword_reset.type === "password") {
+        inputPassword_reset.type = "text";
+    } else {
+        inputPassword_reset.type = "password";
+    }
+};
+togglePassword_reset.addEventListener("click", onToggleTypePassword_reset);
+
+const onToggleTypeConfirmPassword_reset = () => {
+    toggleConfirmPassword_reset.classList.toggle("fa-eye-slash");
+
+    if (inputConfirmPassword_reset.type === "password") {
+        inputConfirmPassword_reset.type = "text";
+    } else {
+        inputConfirmPassword_reset.type = "password";
+    }
+};
+
+toggleConfirmPassword_reset.addEventListener("click", onToggleTypeConfirmPassword_reset);
 
 $('#formSignUp').on('change keyup', function() {
     if (formIsValid()) {
+        $('#btn-submit').removeAttr('disabled');
+    }
+});
+
+$('#formResetPassword').on('change keyup', function() {
+    if (formIsValid_reset()) {
         $('#btn-submit').removeAttr('disabled');
     }
 });
@@ -90,6 +123,18 @@ function formIsValid() {
     if (isBlank($('#file1').val())) return false;
 
     if (isBlank($('#Name').val())) return false;
+
+    return true;
+}
+
+function formIsValid_reset() {
+    if (isBlank($('#Username').val())) return false;
+
+    if (isBlank($('#Password_reset').val()) && isBlank($('#confirmPassword_reset').val())) return false;
+
+    if ($('#Password_reset').val() != $('#confirmPassword_reset').val()) return false;
+
+    if (isBlank($('#file3').val())) return false;
 
     return true;
 }

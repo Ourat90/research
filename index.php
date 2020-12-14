@@ -203,12 +203,45 @@
                                 <h3>Forgot Password</h3>
                             </div>
 
-                            <form action="modules/reset_password.php" control="" class="form-group" enctype="multipart/form-data" method="POST">
+                            <form action="modules/reset_password.php" id="formResetPassword" class="form-group" enctype="multipart/form-data" method="POST">
                                 <div class="row mb-2">
                                     <span class="fa fa-user icon"></span>
                                     <input type="text" name="username" id="Username" class="form__input" placeholder="Username">
                                 </div>
 
+                                <div class="row mb-2 has-danger">
+                                    <input type="password" name="password" id="Password_reset" class="form__input" placeholder="Password" required>
+                                    <span class="fa fa-lock icon"></span>
+                                    <span class="fa fa-eye togglePassword" id="togglePassword_reset"></span>
+
+                                    <div id="passwordRules_reset" class="password-rule">
+                                        <small>
+                                            <ul class="list-unstyled">
+                                                <li class="">
+                                                    <span class="eight-character"><i class="fa fa-ban text-danger  " aria-hidden="true"></i></span>
+                                                    &nbsp; Must have a minimum 8 character</li>
+                                                <li class="">
+                                                    <span class="upper-case"><i class="fa fa-ban text-danger " aria-hidden="true"></i></span>
+                                                    &nbsp; Must have at least 1 uppercase</li>
+                                                <li class="">
+                                                    <span class="lower-case"><i class="fa fa-ban text-danger " aria-hidden="true"></i></span>
+                                                    &nbsp; Must include at least 1 lowercase</li>
+                                                <li class="">
+                                                    <span class="one-number"><i class="fa fa-ban text-danger " aria-hidden="true"></i></span>
+                                                    &nbsp; Must include at least 1 number</li>
+                                            </ul>
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <input type="password" name="confirmPassword" id="confirmPassword_reset" class="form__input" placeholder="Confirm Password" required>
+                                    <span class="fa fa-lock icon"></span>
+                                    <span class="fa fa-eye togglePassword" id="toggleConfirmPassword_reset"></span>
+                                    <div class="hide password-not-match mt-1" id="error-confirmpassword-reset">
+                                        <small><span class="">
+                                                <i class="fa fa-ban text-danger  " aria-hidden="true"></i> &nbsp; Password and confirm password does not match!</span></small>
+                                    </div>
+                                </div>
                                 <div class="row mt-4 text-center">
                                     <div class="col-md-12 mt-2">
                                         <div class="form-group">
@@ -300,6 +333,8 @@
     <script src="modules/js/draganddrop.js"></script>
     <script src="modules/js/function.js"></script>
     <script src="modules/js/validation_password.js"></script>
+    <script src="modules/js/validation_password_reset.js"></script>
+
     <script>
         <?php if (isset($_GET['message'])) { ?>
             <?php if ($_GET['message'] == 'success') { ?>
