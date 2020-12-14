@@ -206,7 +206,7 @@
                             <form action="modules/reset_password.php" id="formResetPassword" class="form-group" enctype="multipart/form-data" method="POST">
                                 <div class="row mb-2">
                                     <span class="fa fa-user icon"></span>
-                                    <input type="text" name="username" id="Username" class="form__input" placeholder="Username">
+                                    <input type="text" name="username" id="Username2" class="form__input" placeholder="Username">
                                 </div>
 
                                 <div class="row mb-2 has-danger">
@@ -270,7 +270,7 @@
                                 </div>
                                 <hr>
                                 <div class="row ">
-                                    <input type="submit" value="Reset Password" class="btn-form">
+                                    <input type="submit" value="Reset Password" class="btn-form" id="btn-submit2" disabled>
                                     <span class="login_form">
                                         <a href="#" id="back-to-sign-in">Back to Login!</a>
                                     </span>

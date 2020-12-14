@@ -109,7 +109,7 @@ $('#formSignUp').on('change keyup', function() {
 
 $('#formResetPassword').on('change keyup', function() {
     if (formIsValid_reset()) {
-        $('#btn-submit').removeAttr('disabled');
+        $('#btn-submit2').removeAttr('disabled');
     }
 });
 
@@ -128,7 +128,7 @@ function formIsValid() {
 }
 
 function formIsValid_reset() {
-    if (isBlank($('#Username').val())) return false;
+    if (isBlank($('#Username2').val())) return false;
 
     if (isBlank($('#Password_reset').val()) && isBlank($('#confirmPassword_reset').val())) return false;
 

@@ -7,7 +7,6 @@ require "../config/database.php";
 //Edit below variables
 $username = $_POST['username'];
 $msg = $_POST['password']; //To encrypt
-$name = $_POST['name'];
 $src = $_FILES['fileToUpload']['tmp_name']; //Start image
 
 // Check is user is not exists
@@ -35,11 +34,7 @@ var_dump($img);
 echo "<br>";
 list($width, $height, $type, $attr) = getimagesize($src); //get image size
 
-<<<<<<< HEAD
 if($msgLength > ($width * $height)){ //The image has more bits than there are pixels in our image
-=======
-if($msgLength>($width*$height)){ //The image has more bits than there are pixels in our image
->>>>>>> development
   echo('Message too long. This is not supported as of now.');
   die();
 }
@@ -47,7 +42,6 @@ if($msgLength>($width*$height)){ //The image has more bits than there are pixels
 $pixelX=0; //Coordinates of our pixel that we want to edit
 $pixelY=0; //^
 
-<<<<<<< HEAD
 for($x = 0; $x < $msgLength; $x++){ //Encrypt message bit by bit (literally)
 
   if($pixelX === $width + 1){ //If this is true, we've reached the end of the row of pixels, start on next row
@@ -56,25 +50,11 @@ for($x = 0; $x < $msgLength; $x++){ //Encrypt message bit by bit (literally)
   }
 
   if($pixelY === $height && $pixelX === $width){ //Check if we reached the end of our file
-=======
-for($x=0;$x<$msgLength;$x++){ //Encrypt message bit by bit (literally)
-
-  if($pixelX === $width+1){ //If this is true, we've reached the end of the row of pixels, start on next row
-    $pixelY++;
-    $pixelX=0;
-  }
-
-  if($pixelY===$height && $pixelX===$width){ //Check if we reached the end of our file
->>>>>>> development
     echo('Max Reached');
     die();
   }
 
-<<<<<<< HEAD
   $rgb = imagecolorat($img, $pixelX, $pixelY); //Color of the pixel at the x and y positions
-=======
-  $rgb = imagecolorat($img,$pixelX,$pixelY); //Color of the pixel at the x and y positions
->>>>>>> development
   $r = ($rgb >>16) & 0xFF; //returns red value for example int(119)
   $g = ($rgb >>8) & 0xFF; //^^ but green
   $b = $rgb & 0xFF;//^^ but blue
@@ -85,13 +65,8 @@ for($x=0;$x<$msgLength;$x++){ //Encrypt message bit by bit (literally)
   $newB[strlen($newB)-1] = $msgBin[$x]; //Change least significant bit with the bit from out message
   $newB = toString($newB); //Convert our blue back to an integer value (even though its called tostring its actually toHex)
 
-<<<<<<< HEAD
   $new_color = imagecolorallocate($img, $newR, $newG, $newB); //swap pixel with new pixel that has its blue lsb changed (looks the same)
   imagesetpixel($img, $pixelX, $pixelY, $new_color); //Set the color at the x and y positions
-=======
-  $new_color = imagecolorallocate($img,$newR,$newG,$newB); //swap pixel with new pixel that has its blue lsb changed (looks the same)
-  imagesetpixel($img,$pixelX,$pixelY,$new_color); //Set the color at the x and y positions
->>>>>>> development
   $pixelX++; //next pixel (horizontally)
 
 }
