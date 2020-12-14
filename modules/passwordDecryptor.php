@@ -30,18 +30,18 @@ function runDecrypt($src, $img) {
 
 	list($width, $height, $type, $attr) = getimagesize($src); //get image size
 
-	for ($x = 0; $x < ($width*$height); $x++) { //Loop through pixel by pixel
+	for ($x = 0; $x < ($width * $height); $x++) { //Loop through pixel by pixel
 	  if($pixelX === $width+1){ //If this is true, we've reached the end of the row of pixels, start on next row
 	    $pixelY++;
-	    $pixelX=0;
+	    $pixelX = 0;
 	  }
 
-	  if($pixelY===$height && $pixelX===$width){ //Check if we reached the end of our file
+	  if($pixelY === $height && $pixelX === $width){ //Check if we reached the end of our file
 	    echo('Max Reached');
 	    die();
 	  }
 
-	  $rgb = imagecolorat($img,$pixelX,$pixelY); //Color of the pixel at the x and y positions
+	  $rgb = imagecolorat($img, $pixelX, $pixelY); //Color of the pixel at the x and y positions
 	  $r = ($rgb >>16) & 0xFF; //returns red value for example int(119)
 	  $g = ($rgb >>8) & 0xFF; //^^ but green
 	  $b = $rgb & 0xFF;//^^ but blue
@@ -55,7 +55,7 @@ function runDecrypt($src, $img) {
 	  if ($count == 8) { //Every time we hit 8 new digits, check the value
 	      if (toString(substr($real_message, -8)) === '|') { //Whats the value of the last 8 digits?
 	          //Yes we're done now
-	          $real_message = toString(substr($real_message,0,-8)); 
+	          $real_message = toString(substr($real_message, 0, -8)); 
 	          return $real_message; //Show
 	      }
 	      $count = 0; //Reset counter
