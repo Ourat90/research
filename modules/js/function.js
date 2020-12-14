@@ -1,10 +1,8 @@
-
- 
-
     var timefade = 300;
 
     // Tambahan code sendiri buat halaman login by maverick
-    console.log( "document loaded" );
+console.log("document loaded");
+        $('#forgot-password').hide();
         $('#sign-in').hide();
         $('#signup').fadeIn(timefade);
 
@@ -24,13 +22,28 @@ $('#to-sign-up').click(function () {
             });                 
 });
 
-// $('#go-to-sign-in').click(function () {
-//     console.log("SIGN IN");
-//     $('.remove-preview').click();
-//             $('#profile').fadeOut(timefade, 'linear', function() {
-//                 $('#sign-in').fadeIn(timefade);
-//             });                
-// });
+$('#up-to-forgot-password').click(function () {
+    console.log("FORGOT PASSWORD");
+    $('.remove-preview').click();
+            $('#signup').fadeOut(timefade, 'linear', function() {
+                $('#forgot-password').fadeIn(timefade);
+            });                 
+});
+$('#in-to-forgot-password').click(function () {
+    console.log("FORGOT PASSWORD");
+    $('.remove-preview').click();
+            $('#sign-in').fadeOut(timefade, 'linear', function() {
+                $('#forgot-password').fadeIn(timefade);
+            });                 
+});
+
+$('#back-to-sign-in').click(function () {
+    console.log("SIGN IN");
+    $('.remove-preview').click();
+            $('#forgot-password').fadeOut(timefade, 'linear', function() {
+                $('#sign-in').fadeIn(timefade);
+            });                
+});
 
 const inputPassword1 = document.getElementById("Password1");
 const inputPassword2 = document.getElementById("Password2");
